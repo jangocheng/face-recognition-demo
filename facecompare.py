@@ -20,4 +20,4 @@ try:
     print("图片相似度：",confidence)
 
 except Exception:
-    print("无法识别！")
+    print("无法识别！") 
