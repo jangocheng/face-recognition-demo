@@ -23,4 +23,4 @@ while True:
     req_con = response.content.decode('utf-8')
     req_dict = JSONDecoder().decode(req_con)
     print(req_dict)
-    cv2.waitKey(10)
+    cv2.waitKey(10) 
