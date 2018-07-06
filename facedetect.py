@@ -14,7 +14,7 @@ cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
-    cv2.imshow("capture", frame)
+    #cv2.imshow("capture", frame)
     cv2.imwrite(r"D:\xxx\face1.jpg", frame)
     files = {"image_file": open(filepath1, "rb")}
 
