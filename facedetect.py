@@ -1,5 +1,5 @@
 import requests
-from json import JSONDecoder
+import json
 import cv2
 
 http_url ="https://api-cn.faceplusplus.com/facepp/v3/detect"
@@ -20,8 +20,7 @@ while True:
 
     response = requests.post(http_url, data=data, files=files)
 
-    req_con = response.content.decode('utf-8')
-    req_dict = JSONDecoder().decode(req_con)
+    req_dict = json.loads(response.text)
     print(req_dict)
 
     width = req_dict['faces'][0]['face_rectangle']['width']

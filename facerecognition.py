@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 import cv2
 import requests
-from json import JSONDecoder
+import json
 import threading
 
 def compareimage(filepath1 ,filepath2):
@@ -15,9 +15,7 @@ def compareimage(filepath1 ,filepath2):
 
         response = requests.post(http_url, data=data, files=files)
 
-        req_con = response.content.decode('utf-8')
-        req_dict = JSONDecoder().decode(req_con)
-
+        req_dict = json.loads(response.text)
         confidence = req_dict['confidence']
         print("图片相似度：",confidence)
         return confidence
