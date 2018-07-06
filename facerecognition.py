@@ -34,7 +34,7 @@ def videocap():
             cv2.imwrite(r"D:\xxx\face1.jpg", frame)
             cv2.waitKey(5)
         except Exception:
-            pass
+            pass 
 
 def comimg(x):
     while True:
