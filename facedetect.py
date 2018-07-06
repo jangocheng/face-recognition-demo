@@ -23,4 +23,14 @@ while True:
     req_con = response.content.decode('utf-8')
     req_dict = JSONDecoder().decode(req_con)
     print(req_dict)
-    cv2.waitKey(10)
+
+    width = req_dict['faces'][0]['face_rectangle']['width']
+    top = req_dict['faces'][0]['face_rectangle']['top']
+    left = req_dict['faces'][0]['face_rectangle']['left']
+    height = req_dict['faces'][0]['face_rectangle']['height']
+
+    img = cv2.imread(r"D:\xxx\face1.jpg")
+    vis = img.copy()
+    cv2.rectangle(vis, (left, top), (left + width, top + height), (0, 255, 0), 2)
+    cv2.imshow("Image", vis)
+    cv2.waitKey(5)
