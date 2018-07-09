@@ -22,14 +22,20 @@ while True:
 
     req_dict = json.loads(response.text)
     print(req_dict)
-
-    width = req_dict['faces'][0]['face_rectangle']['width']
-    top = req_dict['faces'][0]['face_rectangle']['top']
-    left = req_dict['faces'][0]['face_rectangle']['left']
-    height = req_dict['faces'][0]['face_rectangle']['height']
-
-    img = cv2.imread(r"D:\xxx\face1.jpg")
-    vis = img.copy()
-    cv2.rectangle(vis, (left, top), (left + width, top + height), (0, 255, 0), 2)
-    cv2.imshow("Image", vis)
+    if req_dict['faces']:
+        width =[]
+        top = []
+        height = []
+        left = []
+        img = cv2.imread(r"D:\xxx\face1.jpg")
+        vis = img.copy()
+        for i in range(len(req_dict['faces'])):
+            width.append(req_dict['faces'][i]['face_rectangle']['width'])
+            top.append(req_dict['faces'][i]['face_rectangle']['top'])
+            left.append(req_dict['faces'][i]['face_rectangle']['left'])
+            height.append(req_dict['faces'][i]['face_rectangle']['height'])
+            cv2.rectangle(vis, (left[i], top[i]), (left[i] + width[i], top[i] + height[i]), (0, 255, 0), 2)
+        cv2.imshow("Image", vis)
+    else :
+        print("未检测到人脸")
     cv2.waitKey(5)
