@@ -3,7 +3,8 @@
 # Content
 ## facedetect.py
 使用Opencv,通过摄像头捕捉人脸，返回的参数参考face++提供的API文档。<br>
-如果只需要单张照片检测，把cv2相关的部分删掉即可。<br>
+## singilefacedetect.py
+单张照片检测<br>
 ## facecompare.py
 对两张人脸照片进行比对，判断是否是同一人，并返回置信系数。<br>
 ## facerecogniton.py
