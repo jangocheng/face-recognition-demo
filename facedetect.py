@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 import requests
 import json
 import cv2
@@ -6,18 +7,17 @@ http_url ="https://api-cn.faceplusplus.com/facepp/v3/detect"
 key ="your key"
 secret ="your secret"
 
-filepath1 =r"D:\xxx\face1.jpg"
+filepath1 =r"D:\python\facerecognition\facelibrary\face1.jpg"
 
-data = {"api_key":key, "api_secret": secret, "return_attributes": "gender,age,smiling,beauty,emotion"}
+data = {"api_key":key, "api_secret": secret, "return_attributes": "gender,age,smiling,beauty"}
 files = {"image_file": open(filepath1, "rb")}
 cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
-    #cv2.imshow("capture", frame)
-    cv2.imwrite(r"D:\xxx\face1.jpg", frame)
+    cv2.imshow("capture", frame)
+    cv2.imwrite(r"D:\python\facerecognition\facelibrary\face1.jpg", frame)
     files = {"image_file": open(filepath1, "rb")}
-
     response = requests.post(http_url, data=data, files=files)
 
     req_dict = json.loads(response.text)
@@ -27,7 +27,7 @@ while True:
         top = []
         height = []
         left = []
-        img = cv2.imread(r"D:\xxx\face1.jpg")
+        img = cv2.imread(r"D:\python\facerecognition\facelibrary\face1.jpg")
         vis = img.copy()
         for i in range(len(req_dict['faces'])):
             width.append(req_dict['faces'][i]['face_rectangle']['width'])
