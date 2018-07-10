@@ -29,25 +29,22 @@ def videocap():
         try:
             ret, frame = cap.read()
             cv2.imshow("capture", frame)
-            cv2.imwrite(r"D:\xxx\face1.jpg", frame)
+            cv2.imwrite(r"D:\python\facerecognition\facelibrary\face1.jpg", frame)
             cv2.waitKey(5)
         except Exception:
-            pass 
+            pass
 
 def comimg(x):
     while True:
-        if compareimage(imagelibrary[x], r"D:\xxx\face1.jpg") > 75:
+        if compareimage(imagelibrary[x], r"D:\python\facerecognition\facelibrary\face1.jpg") > 75:
             print("身份确认是：", x)
 
-imagelibrary ={"吴宣仪":r"D:\xxx\face2.jpg",
-               "yamy":r"D:\xxx\face4.jpg",
-                "胡歌":r"D:\xxx\face7.jpg",
-               "梅西": r"D:\xxx\face9.jpg",
-               "C罗": r"D:\xxx\face11.jpg",
-               "内马尔": r"D:\xxx\face12.jpg"}
+imagelibrary ={"胡歌":r"D:\python\facerecognition\facelibrary\face7.jpg",
+               "梅西": r"D:\python\facerecognition\facelibrary\face9.jpg",
+               "C罗": r"D:\python\facerecognition\facelibrary\face11.jpg",
+               "内马尔": r"D:\python\facerecognition\facelibrary\face12.jpg"}
 
 cap = cv2.VideoCapture(0)
-
 threading.Thread(target=videocap).start()
 for x in imagelibrary:
     threading.Thread(target=comimg, args=(x,)).start()
