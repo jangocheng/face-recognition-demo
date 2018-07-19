@@ -12,7 +12,7 @@
 为了提高效率，采用了多线程来实现。<br>
 * facesearch.py
 用摄像头检测尺寸最大的人脸，在创建的faceset中搜索找到是否有对应人脸。
-<br>
+<br><br>
 # 使用方法
 关于API参数可查看[face++API帮助文档](https://console.faceplusplus.com.cn/documents/5671787) <br>
 只需注册账号，向文件里填入对应的key和secret，自行修改图片路径，即可运行。<br>
